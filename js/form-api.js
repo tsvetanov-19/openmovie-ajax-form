@@ -22,6 +22,7 @@ var FormAPI = {
             });
             console.log(boxes);
             var queryString = '?t=' + movieTitle + '&type='+ movieType + '&plot=' + plotType + '&tomatoes=' + movieRating;
+            console.log(queryString);
 
             $.ajax({
                 method: "POST",
@@ -35,42 +36,68 @@ var FormAPI = {
 
                     else {
 
-                        var $div = $('div[id^="movie"]:last');
-                        console.log($div);
-                        var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
+                        var div = $('div[id^="movie"]:last');
+                        var divTemplate = $('div[id="movie0"]');
+                        console.log(divTemplate);
+                        var num = parseInt( div.prop("id").match(/\d+/g), 10 ) +1;
 
-                        var $newMovie = $div.clone().prop('id', 'movie'+num );
-                        $newMovie.find('.movie-title').text(response.Title);
-                        $newMovie.find('.movie-plot').text(response.Plot);
-                        console.log($newMovie);
-                        $newMovie.insertAfter($div);
+                        var newMovie = divTemplate.clone().prop('id', 'movie'+num );
+                        newMovie.find('.movie-title').text(response.Title);
+                        newMovie.find('.movie-plot').text(response.Plot);
+                        console.log(newMovie);
+                        newMovie.insertAfter(div);
                         //set movie data from OpenMovie API
 
                         if(jQuery.inArray("actors", boxes) !== -1) {
-                           $newMovie.find('.movie-actors').text(response.Actors);
+                           // $newMovie.append('<span class="movie-actors"'+ response.Actors+'</span>');
+                            newMovie.find('.movie-actors').text(response.Actors);
                         }
+                        else {
+                            newMovie.find('.movie-actors').remove();
+                        }
+
 
                         if(jQuery.inArray("director", boxes) !== -1) {
-                            $newMovie.find('.movie-director').text(response.Director);
+                            // $newMovie.append('<span class="movie-director"'+ response.Actors+'</span>');
+                            newMovie.find('.movie-director').text(response.Director);
                         }
+                        else {
+                            newMovie.find('.movie-director').remove();
+                        }
+
 
                         if(jQuery.inArray("released", boxes) !== -1) {
-                            $newMovie.find('.movie-release-date').text(response.Released);
+                            console.log('released');
+                            newMovie.find('.movie-release-date').text(response.Released);
                         }
+                        else {
+                            console.log("not released");
+                            newMovie.find('.movie-release-date').remove();
+                        }
+
 
                         if(jQuery.inArray("genre", boxes) !== -1) {
-                            $newMovie.find('.movie-genre').text(response.Genre);
+                            newMovie.find('.movie-genre').text(response.Genre);
                         }
+                        else {
+                            newMovie.find('.movie-genre').remove();
+                        }
+
 
                         if(movieRating =='true') {
-                            $newMovie.find('.movie-rating').html('<a target="_blank" href="'+ response.tomatoURL+'"> Rotten tomatoes </a>');
+                            console.log('rotten');
+                            newMovie.find('.movie-rating').html('<a target="_blank" href="'+ response.tomatoURL+'"> Rotten tomatoes </a>');
+                        }
+                        else {
+                            newMovie.remove('.movie-rating');
                         }
 
 
-                        var img = $($newMovie).find("img");
+                        var img = newMovie.find("img");
                         img.attr("src",response.Poster);
 
-                        $newMovie.removeAttr('hidden');
+                        newMovie.removeAttr('hidden');
+                        newMovie.removeAttr('style');
                     }
 
                 }
@@ -91,6 +118,7 @@ var FormAPI = {
             e.preventDefault();
             console.log("fancy");
             $(".movie-div").addClass("div-inline");
+            //TODO: replace this dirty little hack with permanent fix
             $("#movie0").hide();
         });
     },

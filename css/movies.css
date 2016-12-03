@@ -40,6 +40,7 @@
 .movie-runtime, .movie-genre, .movie-director, .movie-release-date, .movie-rating, .movie-actors {
     text-align: center;
     display: block;
+    white-space: pre;
 }
 .layout-div{
     width: 50%;
