@@ -1,0 +1,60 @@
+.card-image {
+    float: left;
+    width: 50%;
+    height: 350px;
+}
+.card-image img {
+    height: 100%;
+}
+.right-content {
+    width: 50%;
+    float: left;
+}
+.card-title {
+    padding-left: 20px;
+}
+
+.wrap {
+    size: 50%;
+    margin: 0 auto;
+    max-width: 640px;
+    border:2px solid black;
+    border-radius: 5px;
+    overflow:hidden;
+    background:  #b3fff0;
+}
+.h1, .movie-title{
+    text-align: center;
+}
+
+.movie-plot {
+    resize: none;
+    overflow-y: scroll;
+    height:auto;
+    width:80%;
+    border: 3px solid #cccccc;
+    padding: 5px;
+    font-family: Tahoma, sans-serif;
+}
+
+.movie-runtime, .movie-genre, .movie-director, .movie-release-date, .movie-rating, .movie-actors {
+    text-align: center;
+    display: block;
+}
+.layout-div{
+    width: 50%;
+    margin:0 auto;
+}
+
+.center-heading {
+    text-align: center;
+}
+
+.movie-div{
+    margin-bottom: 10px;
+    text-align:center;
+}
+.div-inline {
+    display:inline-block;
+    /*overflow: hidden;*/
+}

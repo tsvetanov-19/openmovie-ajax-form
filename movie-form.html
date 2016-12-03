@@ -1,0 +1,161 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Open Movie Database</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/movies.css">
+    <script  type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/validator.js"></script>
+    <script type="text/javascript" src="js/form-api.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <form class="form-horizontal" action="callAPI.php" id="formDiv">
+            <fieldset>
+
+                <!-- Form Name -->
+                <h2 class="center-heading">Open Movie Database</h2>
+
+                <!-- Search input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="searchinput">Movie title</label>
+                    <div class="col-md-4">
+                        <input id="searchinput" name="searchinput" type="search" placeholder="enter title here" class="form-control input-md" required="">
+
+                    </div>
+                </div>
+
+                <!-- Multiple Checkboxes -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="checkboxes-0">Movie info</label>
+                    <div class="col-md-4 movie-box">
+                        <div class="checkbox">
+                            <label for="checkboxes-0">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-0" value="actors">
+                                Actors
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label for="checkboxes-1">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-1" value="director">
+                                Director
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label for="checkboxes-2">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-2" value="released">
+                                Release date
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label for="checkboxes-3">
+                                <input type="checkbox" name="checkboxes" id="checkboxes-3" value="genre">
+                                Genre
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Multiple Radios (inline) -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="plot-0">Plot </label>
+                    <div class="col-md-4" id="plotDiv">
+                        <label class="radio-inline" for="plot-0" >
+                            <input type="radio" name="plot" id="plot-0" value="full" checked="checked">
+                            full
+                        </label>
+                        <label class="radio-inline" for="plot-1">
+                            <input type="radio" name="plot" id="plot-1" value="short">
+                            short
+                        </label>
+                    </div>
+                </div>
+
+
+                <!-- Multiple Radios (inline) -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="rating-0">Rotten tomatoes rating </label>
+                    <div class="col-md-4" id="ratingDiv">
+                        <label class="radio-inline" for="rating-0" >
+                            <input type="radio" name="rating" id="rating-0" value="true" checked="checked">
+                            yes
+                        </label>
+                        <label class="radio-inline" for="rating-1">
+                            <input type="radio" name="rating" id="rating-1" value="false">
+                            no
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="selectMovieType">Movie type</label>
+                    <div class="col-md-4">
+                        <select id="selectMovieType" name="selectMovieType" class="form-control" required="">
+                            <option disabled selected>Select movie type</option>
+                            <option value="movie">Movie</option>
+                            <option value="series">Series</option>
+                            <option value="episode">Episode</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="searchbutton"></label>
+                    <div class="col-md-4">
+                        <button id="searchbutton" name="searchbutton" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+        <br><br>
+        <div class="layout-div">
+            <button id="regular" name="regular" class="btn btn-success btn-layout">Regular layout</button>
+            <button id="fancy" name="fancy" class="btn btn-danger btn-layout">Fancy layout</button>
+        </div>
+        <br><br>
+        <div class="movie-div" id="movie0" hidden>
+
+            <div class="wrap">
+                <h1 class="movie-title">The Title</h1>
+                <div class="card-image">
+                    <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMDMyMmQ5YzgtYWMxOC00OTU0LWIwZjEtZWUwYTY5MjVkZjhhXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg" alt="Default poster" class="hoverZoomLink">
+                </div>
+                <div class="right-content">
+                    <div class="card-content">
+
+                        <textarea class="movie-plot">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
+                        </textarea>
+
+                        <span class="movie-runtime">
+                        </span>
+
+                        <span class="movie-genre">
+                        </span>
+
+                        <span class="movie-actors">
+                        </span>
+                        <span class="movie-director">
+                        </span>
+
+                        <span class="movie-release-date">
+                        </span>
+
+                        <span class="movie-rating">
+                        </span>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+<body/>
