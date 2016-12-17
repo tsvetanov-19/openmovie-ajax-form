@@ -48,8 +48,9 @@ var FormAPI = {
                         newMovie.insertAfter(div);
                         //set movie data from OpenMovie API
 
+
+                        //todo: replace this if-else sequence  with a dynamic loop for the checkboxes
                         if(jQuery.inArray("actors", boxes) !== -1) {
-                           // $newMovie.append('<span class="movie-actors"'+ response.Actors+'</span>');
                             newMovie.find('.movie-actors').text(response.Actors);
                         }
                         else {
@@ -58,7 +59,6 @@ var FormAPI = {
 
 
                         if(jQuery.inArray("director", boxes) !== -1) {
-                            // $newMovie.append('<span class="movie-director"'+ response.Actors+'</span>');
                             newMovie.find('.movie-director').text(response.Director);
                         }
                         else {
@@ -71,7 +71,6 @@ var FormAPI = {
                             newMovie.find('.movie-release-date').text(response.Released);
                         }
                         else {
-                            console.log("not released");
                             newMovie.find('.movie-release-date').remove();
                         }
 
